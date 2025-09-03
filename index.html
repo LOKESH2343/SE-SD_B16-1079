@@ -1,11 +1,173 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   <title>HTML small Tag</title>
+  <meta charset="UTF-8">
+  <title>Home | Simple Website</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-   <h1>GeeksforGeeks</h1>
-   <p>This is some normal text.</p>
-   <p><small>This is some smaller text.</small></p>
+<body class="home">
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+  <h1>Welcome to Our Demo Website</h1>
+  <p>This site shows login, registration, and profile using plain HTML and CSS.</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login">
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+  <div class="form-container">
+    <form>
+      <h2>Login</h2>
+      <label>Email</label>
+      <input type="email" required>
+      <label>Password</label>
+      <input type="password" required>
+      <button t<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="register">
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+  <div class="form-container">
+    <form>
+      <h2>Register</h2>
+      <label>Email</label>
+      <input type="email" required>
+      <label>Password</label>
+      <input type="password" required>
+      <label>Confirm Password</label>
+      <input type="password" required>
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </form>
+  </div>
+</body>
+</html>
+ype="submit">Login</button>
+      <p>Don't have an account? <a href="register.html">Register</a></p>
+    </form>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="profile">
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+  <div class="profile-container">
+    <h2>User Profile</h2>
+    <p>Email: demo@example.com</p>
+  </div>
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* Home page */
+body.home {
+  background: linear-gradient(135deg, #51e2f5 60%, #9df9ef 100%);
+}
+/* Login page */
+body.login {
+  background: linear-gradient(120deg, #1E2761 80%, #408EC6 100%);
+}
+/* Register page */
+body.register {
+  background: linear-gradient(135deg, #F7882F 60%, #F7C331 100%);
+}
+/* Profile page */
+body.profile {
+  background: linear-gradient(135deg, #f9c5bd 60%, #8076a3 100%);
+}
+nav ul {
+  background: #444;
+  color: #fff;
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  gap: 15px;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+.form-container, .profile-container {
+  width: 300px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+form h2, .profile-container h2 {
+  margin-bottom: 15px;
+}
+form label {
+  display: block;
+  margin-top: 10px;
+}
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+form button {
+  width: 100%;
+  padding: 10px;
+  background: #2d89e5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+form button:hover {
+  background: #0d5cb6;
+}
