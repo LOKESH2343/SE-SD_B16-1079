@@ -2,172 +2,179 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Home | Simple Website</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Single Page Demo Website</title>
+  <link rel="stylesheet" href="">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    nav {
+      background: #444;
+      color: #fff;
+    }
+    nav ul {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+      margin: 0;
+      padding: 12px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 7px 15px;
+      border-radius: 4px;
+      background: rgba(35, 35, 35, 0.07);
+      transition: background 0.2s;
+    }
+    nav ul li a:hover {
+      background: #222;
+    }
+
+    section {
+      min-height: 70vh;
+      display: none;
+      padding: 40px 0;
+      box-sizing: border-box;
+    }
+    .active-section {
+      display: block;
+    }
+
+    /* Section backgrounds */
+    #home-section {
+      background: linear-gradient(135deg, #51e2f5 60%, #9df9ef 100%);
+    }
+    #login-section {
+      background: linear-gradient(120deg, #1E2761 80%, #408EC6 100%);
+    }
+    #register-section {
+      background: linear-gradient(135deg, #F7882F 60%, #F7C331 100%);
+    }
+    #profile-section {
+      background: linear-gradient(135deg, #f9c5bd 60%, #8076a3 100%);
+    }
+
+    .form-container, .profile-container {
+      width: 320px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+    form h2, .profile-container h2 {
+      margin-bottom: 15px;
+    }
+    form label {
+      display: block;
+      margin-top: 10px;
+    }
+    form input[type="email"],
+    form input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      width: 100%;
+      padding: 10px;
+      background: #2d89e5;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #0d5cb6;
+    }
+
+    .profile-container h2 {
+      margin-bottom: 10px;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+      function showSection(id) {
+        document.querySelectorAll('section').forEach(function(sec){
+          sec.classList.remove('active-section');
+        });
+        document.getElementById(id).classList.add('active-section');
+      }
+
+      // Show Home by default
+      showSection('home-section');
+      document.querySelectorAll('nav ul li a').forEach(function(link){
+        link.addEventListener('click', function(e){
+          e.preventDefault();
+          const secId = this.getAttribute('href').replace('#','') + '-section';
+          showSection(secId);
+        });
+      });
+    }
+  </script>
 </head>
-<body class="home">
+<body>
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="profile.html">Profile</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#login">Login</a></li>
+      <li><a href="#register">Register</a></li>
+      <li><a href="#profile">Profile</a></li>
     </ul>
   </nav>
-  <h1>Welcome to Our Demo Website</h1>
-  <p>This site shows login, registration, and profile using plain HTML and CSS.</p>
+
+  <section id="home-section">
+    <div class="form-container" style="background: #fff;">
+      <h1>Welcome to Our Demo Website</h1>
+      <p>This site shows login, registration, and profile using plain HTML and CSS—all in one page.</p>
+    </div>
+  </section>
+
+  <section id="login-section">
+    <div class="form-container">
+      <form>
+        <h2>Login</h2>
+        <label>Email</label>
+        <input type="email" required>
+        <label>Password</label>
+        <input type="password" required>
+        <button type="submit">Login</button>
+        <p>Don't have an account? <a href="#register" onclick="document.getElementById('register-section').scrollIntoView();">Register</a></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="register-section">
+    <div class="form-container">
+      <form>
+        <h2>Register</h2>
+        <label>Email</label>
+        <input type="email" required>
+        <label>Password</label>
+        <input type="password" required>
+        <label>Confirm Password</label>
+        <input type="password" required>
+        <button type="submit">Register</button>
+        <p>Already have an account? <a href="#login" onclick="document.getElementById('login-section').scrollIntoView();">Login</a></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="profile-section">
+    <div class="profile-container">
+      <h2>User Profile</h2>
+      <p>Email: demo@example.com</p>
+      <!-- You can add more profile info here -->
+    </div>
+  </section>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="login">
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="profile.html">Profile</a></li>
-    </ul>
-  </nav>
-  <div class="form-container">
-    <form>
-      <h2>Login</h2>
-      <label>Email</label>
-      <input type="email" required>
-      <label>Password</label>
-      <input type="password" required>
-      <button t<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Register</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="register">
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="profile.html">Profile</a></li>
-    </ul>
-  </nav>
-  <div class="form-container">
-    <form>
-      <h2>Register</h2>
-      <label>Email</label>
-      <input type="email" required>
-      <label>Password</label>
-      <input type="password" required>
-      <label>Confirm Password</label>
-      <input type="password" required>
-      <button type="submit">Register</button>
-      <p>Already have an account? <a href="login.html">Login</a></p>
-    </form>
-  </div>
-</body>
-</html>
-ype="submit">Login</button>
-      <p>Don't have an account? <a href="register.html">Register</a></p>
-    </form>
-  </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Profile</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="profile">
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="profile.html">Profile</a></li>
-    </ul>
-  </nav>
-  <div class="profile-container">
-    <h2>User Profile</h2>
-    <p>Email: demo@example.com</p>
-  </div>
-</body>
-</html>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-/* Home page */
-body.home {
-  background: linear-gradient(135deg, #51e2f5 60%, #9df9ef 100%);
-}
-/* Login page */
-body.login {
-  background: linear-gradient(120deg, #1E2761 80%, #408EC6 100%);
-}
-/* Register page */
-body.register {
-  background: linear-gradient(135deg, #F7882F 60%, #F7C331 100%);
-}
-/* Profile page */
-body.profile {
-  background: linear-gradient(135deg, #f9c5bd 60%, #8076a3 100%);
-}
-nav ul {
-  background: #444;
-  color: #fff;
-  list-style: none;
-  padding: 10px;
-  display: flex;
-  gap: 15px;
-}
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 5px 10px;
-}
-.form-container, .profile-container {
-  width: 300px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-}
-form h2, .profile-container h2 {
-  margin-bottom: 15px;
-}
-form label {
-  display: block;
-  margin-top: 10px;
-}
-form input[type="email"],
-form input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-form button {
-  width: 100%;
-  padding: 10px;
-  background: #2d89e5;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  margin-top: 15px;
-  cursor: pointer;
-}
-form button:hover {
-  background: #0d5cb6;
-}
